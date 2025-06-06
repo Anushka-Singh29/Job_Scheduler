@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 3000;
 const { scheduleEveryFifteenMinutes, scheduleHourlyJob, scheduleDailyJob } = require('./scheduler');
 
 const app = express();
@@ -120,9 +121,6 @@ app.get('/logs', (req, res) => {
   });
 });
 
-const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Job Scheduler running on http://localhost:${PORT}`);
 });
-
-// const PORT = process.env.PORT || 3000;
